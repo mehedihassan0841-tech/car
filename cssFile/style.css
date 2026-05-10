@@ -1,0 +1,947 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* MAIN CONTAINER */
+.first-container{
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* MOVING BLUR BACKGROUND */
+.first-container::before{
+    content: "";
+    position: absolute;
+    inset: -20px;
+
+    background: url("../photoFile/taxi1.jpg");
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(3px) brightness(1) saturate(1.2);
+    transform: scale(1.2);
+
+    animation: bgMove 18s ease-in-out infinite alternate;
+
+    z-index: 0;
+}
+
+/* DARK OVERLAY */
+.first-container::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    z-index: 1;
+}
+
+/* BACKGROUND ANIMATION */
+@keyframes bgMove{
+    0%{
+        transform: scale(1.2) translate(0px, 0px);
+    }
+    50%{
+        transform: scale(1.2) translate(-30px, -20px);
+    }
+    100%{
+        transform: scale(1.2) translate(30px, 20px);
+    }
+}
+
+/* NAVBAR */
+nav{
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    padding: 10px 40px;
+}
+
+.logo img{
+    width: 150px;
+    height: 80px;
+}
+
+nav .menu{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav .menu ul{
+    list-style: none;
+    display: flex;
+}
+
+nav .menu ul li{
+    margin-left: 40px;
+}
+
+nav .menu ul li a{
+    position: relative;
+    display: inline-block;
+
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+
+    transition: color 0.3s ease;
+}
+
+/* UNDERLINE */
+nav .menu ul li a::after{
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+
+    width: 0%;
+    height: 2px;
+
+    background: white;
+
+    transition: width 0.4s ease;
+}
+
+/* HOVER EFFECT */
+nav .menu ul li a:hover{
+    color: cyan;
+}
+
+nav .menu ul li a:hover::after{
+    width: 100%;
+}
+
+/* BANNER */
+.banner{
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 85vh;
+}
+
+/* GLASS FORM */
+.order-form{
+    width: 420px;
+    padding: 40px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+    display: block;
+}
+
+/* FORM LAYOUT */
+.order-form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* INPUT GROUP */
+.order-timing{
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* LABEL */
+.order-timing label{
+    color: rgb(226, 233, 245);
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* INPUT */
+.order-timing input{
+    width: 100%;
+    height: 45px;
+
+    padding: 8px 5px;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    border-bottom: 2px solid white;
+
+    color: white;
+    font-size: 15px;
+}
+
+/* PLACEHOLDER */
+.order-timing input::placeholder{
+    color: rgba(255,255,255,0.6);
+}
+
+/* BUTTON */
+button{
+    width: 100%;
+    max-width: 320px;
+    height: 45px;
+
+    margin-top: 10px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 30px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+    background: white;
+}
+
+button:hover{
+    background: #1565c0;
+    transform: scale(1.05);
+}
+
+.second-container{
+    margin: 30px 0;
+    width: 100%;
+    /*background-color: red;*/
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.second-container .small-car{
+    width: 300px;
+    height: 482px;
+      background: url("../photoFile/small.jpg");
+    background-size: cover;
+    background-position: center;
+     position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+/* COMMON DESIGN */
+.second-container .small-car,
+.second-container .large-car,
+.second-container .medium-car{
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+
+    background-size: cover;
+    background-position: center;
+
+    transition: 0.4s ease;
+}
+
+/* IMAGES */
+.second-container .small-car{
+    width: 300px;
+    height: 482px;
+    background-image: url("../photoFile/small.jpg");
+}
+
+.second-container .large-car{
+    width: 450px;
+    height: 578px;
+    background-image: url("../photoFile/large5.jpg");
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.second-container .medium-car{
+    width: 300px;
+    height: 482px;
+    background-image: url("../photoFile/medium.jpg");
+}
+
+/* BLUR OVERLAY */
+.small-car::before,
+.large-car::before,
+.medium-car::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+/* TEXT BOX */
+.car-info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    width: 80%;
+
+    color: white;
+    z-index: 2;
+
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+/* TEXT STYLE */
+.car-info p{
+    display: flex;
+    justify-content: space-between;
+
+    margin: 20px 0;
+    padding-bottom: 10px;
+
+    font-size: 20px;
+    border-bottom: 1px solid white;
+}
+
+/* HOVER EFFECT */
+.small-car:hover::before,
+.large-car:hover::before,
+.medium-car:hover::before{
+    opacity: 1;
+}
+
+.small-car:hover .car-info,
+.large-car:hover .car-info,
+.medium-car:hover .car-info{
+    opacity: 1;
+}
+
+/* ZOOM EFFECT */
+.small-car:hover,
+.large-car:hover,
+.medium-car:hover{
+    transform: scale(1.03);
+}
+.second-container .large-car{
+    width: 450px;
+    height: 578px;
+      background: url("../photoFile/large5.jpg");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.6);
+    
+}
+.second-container .medium-car{
+    width: 300px;
+    height: 482px;
+     background: url("../photoFile/medium.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.car-qualities{
+    margin-top: 50px;
+}
+.car-qualities h1,.service-headline h1{
+    text-align: center;
+    color: rgb(37, 156, 224);
+}
+
+.service-headline{
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+.service-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 100px;
+}
+.service-container .col4{
+    width: 300px;
+    height: 65vh;
+    background-color:  rgb(247, 247, 247);
+   
+    border-radius: 15px;
+    overflow: hidden;
+
+    transition: 0.4s ease;
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    
+}
+.service-container .col4:hover{
+    transform: translateY(-12px) scale(1.03);
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+.service-container .col4 img{
+
+    width: 300px;
+    height: 163px;
+
+    transition: 0.4s ease;
+}
+.service-container .col4:hover img{
+    transform: scale(1.08);
+}
+.service-container .col4 p{
+    color: rgb(8, 8, 8);
+    font-size: 20px;
+    /* transition: 0.3s ease;*/
+}
+/*.service-container .col4:hover p{
+    color: rgb(37, 156, 224);
+}*/
+.details-service{
+    padding: 20px;
+    box-sizing: border-box;
+}
+.info-headline h1{
+
+    color: rgb(37, 156, 224);
+    text-align: center;
+    margin-bottom: 100px;
+}
+/* DRIVER CARD */
+/* RESET */
+
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CARD */
+.drivers-info{
+    width: 320px;
+    height: 540px;
+    
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    margin: auto;
+    transition: 0.4s;
+}
+
+.drivers-info:hover{
+    transform: translateY(-10px);
+}
+
+/* TOP BLUE AREA */
+.background{
+    width: 100%;
+    height: 30%;
+
+    background: linear-gradient(135deg, #2196f3, #0d47a1);
+}
+
+/* IMAGE */
+.driver-image{
+    position: absolute;
+
+    top: 18%;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.driver-image img{
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 5px solid white;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* DETAILS */
+.driver-details{
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 70%;
+}
+
+/* NAME */
+.driver-details h2{
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+/* QUALITIES */
+.qualities p{
+    margin: 8px 0;
+    font-size: 15px;
+    color: #555;
+}
+
+/* BUTTON CONTAINER */
+.driver-buttons{
+    
+
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 30px;
+}
+
+/* BUTTON STYLE */
+.driver-buttons button{
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 25px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+/* HIRE */
+.hire-btn{
+    background: #2196f3;
+    color: white;
+}
+
+.hire-btn:hover{
+    background: #1565c0;
+    transform: scale(1.05);
+}
+
+/* CHAT */
+.chat-btn{
+    background: #00c853;
+    color: white;
+}
+
+.chat-btn:hover{
+    background: #009624;
+    transform: scale(1.05);
+}
+
+.drivers-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+    flex-wrap: wrap;
+
+    margin: 50px 0;
+}
+/* ================= FOOTER ================= */
+
+.footer{
+    background: #111;
+    color: white;
+    padding-top: 50px;
+    margin-top: 80px;
+}
+
+.footer-container{
+    width: 90%;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-box{
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-box h2{
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #1565c0;
+}
+
+.footer-box p{
+    line-height: 28px;
+    color: #ccc;
+}
+
+.footer-box a{
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+
+.footer-box a:hover{
+    color: #1565c0;
+    transform: translateX(5px);
+}
+
+/* SOCIAL ICONS */
+
+.social-icons{
+    margin-top: 20px;
+}
+
+.social-icons a{
+    display: inline-block;
+    margin-right: 15px;
+    background: #1565c0;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.social-icons a:hover{
+    background: white;
+}
+
+/* FOOTER BOTTOM */
+
+.footer-bottom{
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: 40px;
+    padding: 20px 10px;
+    color: #aaa;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* =========================
+        RESPONSIVE
+========================= */
+
+@media(max-width: 992px){
+
+    /* NAVBAR */
+    nav{
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    nav .menu{
+        width: 100%;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    nav .menu ul{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav .menu ul li{
+        margin-left: 0;
+    }
+
+    nav .menu ul li a{
+        font-size: 18px;
+    }
+
+    /* CAR SECTION */
+    .second-container{
+        flex-wrap: wrap;
+        height: auto;
+        padding: 20px;
+    }
+
+    .second-container .large-car,
+    .second-container .small-car,
+    .second-container .medium-car{
+        width: 90%;
+        max-width: 450px;
+        height: 500px;
+    }
+
+    /* SERVICE SECTION */
+    .service-container{
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .service-container .col4{
+        width: 45%;
+        height: auto;
+    }
+
+    .service-container .col4 img{
+        width: 100%;
+        height: 220px;
+    }
+
+    /* DRIVER */
+    .drivers-container{
+        padding: 20px;
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 768px){
+
+    /* NAVBAR */
+    nav{
+        padding: 15px;
+    }
+
+    .logo img{
+        width: 120px;
+        height: 70px;
+    }
+
+    nav .menu ul{
+        gap: 10px;
+    }
+
+    nav .menu ul li a{
+        font-size: 16px;
+    }
+      nav .menu ul{
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    nav .menu ul li a{
+        font-size: 18px;
+        padding: 5px 0;
+    }
+
+    /* underline thickness slightly bigger for mobile touch clarity */
+    nav .menu ul li a::after{
+        height: 2px;
+        bottom: -4px;
+    }
+
+    /* BANNER */
+    .banner{
+        padding: 20px;
+        height: auto;
+        min-height: 80vh;
+    }
+
+    /* FORM */
+    .order-form{
+        width: 100%;
+        padding: 25px;
+    }
+
+    .order-timing{
+        max-width: 100%;
+    }
+
+    button{
+        max-width: 100%;
+    }
+
+    /* CAR SECTION */
+    .second-container{
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .second-container .large-car,
+    .second-container .small-car,
+    .second-container .medium-car{
+        width: 95%;
+        height: 420px;
+    }
+
+    .car-info p{
+        font-size: 18px;
+    }
+
+    /* SERVICES */
+    .service-container{
+        flex-direction: column;
+    }
+
+    .service-container .col4{
+        width: 95%;
+    }
+
+    .service-container .col4 p{
+        font-size: 18px;
+    }
+
+  
+
+    /* HEADLINE */
+    .car-qualities h1,
+    .service-headline h1,
+    .info-headline h1{
+        font-size: 32px;
+    }
+
+    /* FOOTER */
+    .footer-container{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-box{
+        width: 100%;
+    }
+
+    .social-icons a{
+        margin-top: 10px;
+    }
+
+}
+
+
+/* ============== SMALL MOBILE ============== */
+
+@media(max-width: 480px){
+
+    nav .menu ul{
+        gap: 8px;
+    }
+
+    nav .menu ul li a{
+        font-size: 14px;
+    }
+
+    .order-form{
+        padding: 20px;
+    }
+
+    .order-timing label{
+        font-size: 14px;
+    }
+
+    .order-timing input{
+        font-size: 14px;
+    }
+
+    .service-container .col4 p{
+        font-size: 16px;
+    }
+
+    .driver-details h2{
+        font-size: 20px;
+    }
+
+    .qualities p{
+        font-size: 14px;
+    }
+
+    .footer-box h2{
+        font-size: 24px;
+    }
+
+}
+
+@media(max-width: 768px){
+
+    .drivers-info{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        padding: 15px;
+    }
+
+    /* 30% IMAGE */
+    .driver-image{
+        position: static;
+        transform: none;
+        flex: 0 0 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .driver-image img{
+        width: 80px;
+        height: 80px;
+    }
+
+    /* 50% INFO */
+    .driver-details{
+        flex: 0 0 50%;
+        padding: 10px;
+        height: auto;
+        text-align: left;
+    }
+
+    .driver-details h2{
+        font-size: 18px;
+    }
+
+    .qualities p{
+        font-size: 13px;
+        margin: 4px 0;
+    }
+
+    /* 20% BUTTON */
+    .driver-buttons{
+        flex: 0 0 20%;
+        flex-direction: column;
+        padding: 0;
+        gap: 8px;
+    }
+
+    .driver-buttons button{
+        width: 100%;
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    /* background adjust */
+    .background{
+        display: none;
+    }
+}
